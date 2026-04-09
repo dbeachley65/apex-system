@@ -6,13 +6,15 @@
     <title>The Apex System</title>
     <style>
       :root {
-        --bg: #f8fafc;
+        --bg: #f6f8f7;
         --surface: #ffffff;
-        --surface-alt: #f1f5f9;
+        --surface-alt: #e8efed;
         --text: #0f172a;
         --muted: #475569;
-        --line: #e2e8f0;
-        --accent: #0f172a;
+        --line: #dbe4e1;
+        --accent: #1f3a5f; /* navy */
+        --accent-soft: #d9e5e2; /* dusty green */
+        --highlight: #5f8f85; /* deeper dusty green */
         --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
         --radius-xl: 28px;
         --radius-lg: 20px;
@@ -59,7 +61,7 @@
         transition: 0.2s ease;
         font-size: 0.95rem;
       }
-      .nav a:hover { background: var(--surface); border-color: var(--line); color: var(--text); }
+      .nav a:hover { background: var(--surface); border-color: var(--line); color: var(--text); transform: translateY(-1px); }
 
       section { padding: 44px 0; }
       .hero { padding-top: 34px; }
@@ -92,8 +94,8 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at top right, rgba(148, 163, 184, 0.18), transparent 34%),
-          radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.05), transparent 30%);
+          radial-gradient(circle at top right, rgba(95,143,133,0.25), transparent 40%),
+          radial-gradient(circle at bottom left, rgba(31,58,95,0.15), transparent 35%);
         pointer-events: none;
       }
 
@@ -109,7 +111,9 @@
         padding: 8px 12px;
         color: var(--muted);
         font-size: 0.9rem;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
+      .eyebrow:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(95, 143, 133, 0.12); }
 
       h1 {
         font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -142,8 +146,12 @@
         font-weight: 600;
         transition: 0.2s ease;
       }
-      .btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
-      .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+      .btn.primary {
+        background: var(--accent);
+        color: white;
+        border-color: var(--accent);
+      }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(31, 58, 95, 0.12); }
 
       .hero-side {
         background: rgba(248, 250, 252, 0.88);
@@ -168,7 +176,8 @@
       }
 
       .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-      .role-card { padding: 20px; }
+      .role-card { padding: 20px; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+      .role-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(31, 58, 95, 0.1); border-color: #b8ccc6; }
       .role-card h3 { margin: 0 0 6px; font-size: 1.1rem; }
       .role-card p { margin: 0 0 12px; color: #64748b; font-size: 0.95rem; }
       .role-card ul, .outcomes { list-style: none; padding: 0; margin: 0; }
@@ -208,7 +217,8 @@
         gap: 16px;
       }
 
-      .pillar-card, .step-card, .summary-card { padding: 22px; }
+      .pillar-card, .step-card, .summary-card { padding: 22px; transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background-color 0.28s ease; }
+      .pillar-card:hover, .step-card:hover, .summary-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(31, 58, 95, 0.11); border-color: #b8ccc6; }
       .pillar-icon, .step-number {
         width: 44px;
         height: 44px;
@@ -216,10 +226,10 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--surface-alt);
+        background: var(--accent-soft);
         border: 1px solid var(--line);
         font-weight: 700;
-        color: #334155;
+        color: var(--accent);
         margin-bottom: 14px;
       }
       .pillar-card h3, .step-card h3, .summary-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
@@ -230,7 +240,7 @@
         margin-top: 18px;
         padding: 18px 20px;
         border-radius: 18px;
-        background: linear-gradient(135deg, #0f172a, #1e293b);
+        background: linear-gradient(135deg, #1f3a5f, #5f8f85);
         color: white;
         text-align: center;
         font-weight: 600;
@@ -260,7 +270,10 @@
       td strong { color: var(--text); }
 
       .summary-stack { display: grid; gap: 16px; }
-      .summary-card.highlight { background: #0f172a; color: white; }
+      .summary-card.highlight {
+        background: linear-gradient(135deg, #1f3a5f, #5f8f85);
+        color: white;
+      }
       .summary-card.highlight p { color: rgba(255,255,255,0.82); }
 
       .footer-card {
@@ -277,6 +290,19 @@
         gap: 6px 18px;
         margin-top: 14px;
       }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .hero-card { animation: fadeUp 0.8s ease both; }
+      .hero-side { animation: fadeUp 1s ease both; }
+      .pillar-card:nth-child(1), .step-card:nth-child(1) { animation: fadeUp 0.55s ease both; }
+      .pillar-card:nth-child(2), .step-card:nth-child(2) { animation: fadeUp 0.7s ease both; }
+      .pillar-card:nth-child(3), .step-card:nth-child(3) { animation: fadeUp 0.85s ease both; }
+      .pillar-card:nth-child(4), .step-card:nth-child(4) { animation: fadeUp 1s ease both; }
+      .comparison-table, .summary-card, .footer-card { animation: fadeUp 0.85s ease both; }
 
       @media (max-width: 1100px) {
         .hero-card, .comparison-wrap { grid-template-columns: 1fr; }
