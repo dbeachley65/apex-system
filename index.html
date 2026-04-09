@@ -9,13 +9,13 @@
         --bg: #f6f8f7;
         --surface: #ffffff;
         --surface-alt: #e8efed;
-        --text: #0f172a;
-        --muted: #475569;
+        --text: #1a1a1a; /* very dark gray (softer) */
+        --muted: #4b5563;
         --line: #dbe4e1;
-        --accent: #1f3a5f; /* navy */
-        --accent-soft: #d9e5e2; /* dusty green */
-        --highlight: #5f8f85; /* deeper dusty green */
-        --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+        --accent: #3a3532; /* warm charcoal */
+        --accent-soft: #e4ecea; /* softer dusty green */
+        --highlight: #7a9c93; /* muted green */
+        --shadow: 0 10px 30px rgba(26, 26, 26, 0.06);
         --radius-xl: 28px;
         --radius-lg: 20px;
         --max: 1180px;
@@ -151,7 +151,7 @@
         color: white;
         border-color: var(--accent);
       }
-      .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(31, 58, 95, 0.12); }
+      .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(47, 52, 58, 0.12); }
 
       .hero-side {
         background: rgba(248, 250, 252, 0.88);
@@ -177,7 +177,7 @@
 
       .role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
       .role-card { padding: 20px; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
-      .role-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(31, 58, 95, 0.1); border-color: #b8ccc6; }
+      .role-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(47, 52, 58, 0.1); border-color: #c7d8d3; }
       .role-card h3 { margin: 0 0 6px; font-size: 1.1rem; }
       .role-card p { margin: 0 0 12px; color: #64748b; font-size: 0.95rem; }
       .role-card ul, .outcomes { list-style: none; padding: 0; margin: 0; }
@@ -218,7 +218,7 @@
       }
 
       .pillar-card, .step-card, .summary-card { padding: 22px; transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background-color 0.28s ease; }
-      .pillar-card:hover, .step-card:hover, .summary-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(31, 58, 95, 0.11); border-color: #b8ccc6; }
+      .pillar-card:hover, .step-card:hover, .summary-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(47, 52, 58, 0.11); border-color: #c7d8d3; }
       .pillar-icon, .step-number {
         width: 44px;
         height: 44px;
@@ -240,7 +240,7 @@
         margin-top: 18px;
         padding: 18px 20px;
         border-radius: 18px;
-        background: linear-gradient(135deg, #1f3a5f, #5f8f85);
+        background: linear-gradient(135deg, #3a3532, #7a9c93);
         color: white;
         text-align: center;
         font-weight: 600;
@@ -271,7 +271,7 @@
 
       .summary-stack { display: grid; gap: 16px; }
       .summary-card.highlight {
-        background: linear-gradient(135deg, #1f3a5f, #5f8f85);
+        background: linear-gradient(135deg, #3a3532, #7a9c93);
         color: white;
       }
       .summary-card.highlight p { color: rgba(255,255,255,0.82); }
