@@ -51,7 +51,18 @@
         padding: 16px 0;
       }
 
-      .brand { font-weight: 700; letter-spacing: -0.02em; }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+       font-weight: 700;
+       letter-spacing: -0.02em;
+       }
+      .logo {
+        height: 36px;
+        width: auto;
+        object-fit: contain;
+        }
       .nav { display: flex; gap: 10px; flex-wrap: wrap; }
       .nav a {
         padding: 10px 14px;
@@ -321,7 +332,10 @@
   <body>
     <header class="site-header">
       <div class="container site-header-inner">
-        <div class="brand">The Apex System</div>
+        <div class="brand">
+          <img src="logo.png" alt="The Apex System Logo" class="logo" />
+          <span>The Apex System</span>
+        </div>
         <nav class="nav">
           <a href="#overview">Overview</a>
           <a href="#pillars">Pillars</a>
